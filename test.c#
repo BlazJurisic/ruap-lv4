@@ -10,7 +10,7 @@ using OpenQA.Selenium.Support.UI;
 namespace SeleniumTests
 {
     [TestFixture]
-    public class Bb
+    public class NewTest
     {
         private IWebDriver driver;
         private StringBuilder verificationErrors;
@@ -40,25 +40,31 @@ namespace SeleniumTests
         }
         
         [Test]
-        public void TheBbTest()
+        public void TheNewTest()
         {
             driver.Navigate().GoToUrl("https://demo.opencart.com/");
-            driver.FindElement(By.XPath("(.//*[normalize-space(text()) and normalize-space(.)='$ US Dollar'])[1]/following::span[2]")).Click();
-            driver.FindElement(By.LinkText("Logout")).Click();
             driver.FindElement(By.XPath("(.//*[normalize-space(text()) and normalize-space(.)='$ US Dollar'])[1]/following::span[2]")).Click();
             driver.FindElement(By.LinkText("Login")).Click();
             driver.FindElement(By.Id("input-email")).Click();
             driver.FindElement(By.Id("input-email")).Clear();
             driver.FindElement(By.Id("input-email")).SendKeys("john@doe3.com");
+            driver.FindElement(By.XPath("(.//*[normalize-space(text()) and normalize-space(.)='I am a returning customer'])[1]/following::form[1]")).Click();
+            driver.FindElement(By.Id("input-password")).Click();
             driver.FindElement(By.Id("input-password")).Clear();
             driver.FindElement(By.Id("input-password")).SendKeys("johndoe");
+            driver.FindElement(By.XPath("(.//*[normalize-space(text()) and normalize-space(.)='I am a returning customer'])[1]/following::form[1]")).Click();
             driver.FindElement(By.XPath("(.//*[normalize-space(text()) and normalize-space(.)='Forgotten Password'])[1]/following::input[1]")).Click();
             driver.FindElement(By.LinkText("Edit your account information")).Click();
             driver.FindElement(By.Id("input-firstname")).Click();
             driver.FindElement(By.Id("input-firstname")).Click();
+            driver.FindElement(By.Id("input-firstname")).Click();
+            driver.FindElement(By.Id("input-firstname")).Click();
             // ERROR: Caught exception [ERROR: Unsupported command [doubleClick | id=input-firstname | ]]
-            driver.FindElement(By.Id("input-firstname")).Clear();
-            driver.FindElement(By.Id("input-firstname")).SendKeys("hello world");
+            driver.FindElement(By.Id("input-firstname")).Click();
+            driver.FindElement(By.Id("input-firstname")).Click();
+            driver.FindElement(By.Id("input-firstname")).Click();
+            // ERROR: Caught exception [ERROR: Unsupported command [doubleClick | id=input-firstname | ]]
+            driver.FindElement(By.Id("input-firstname")).Click();
             driver.FindElement(By.Id("content")).Click();
             driver.FindElement(By.XPath("(.//*[normalize-space(text()) and normalize-space(.)='Back'])[1]/following::input[1]")).Click();
         }
